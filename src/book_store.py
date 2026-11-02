@@ -3,4 +3,5 @@ class BookStore:
         self.books = []
 
     def addBook(self, author, title):
-        self.books.append({"author": author, "title": title})
+        book_id = len(self.books) + 1
+        self.books.append({"id": book_id, "author": author, "title": title})
