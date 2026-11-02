@@ -20,3 +20,11 @@ def test_toggle_favorite_marks_book_as_favorite():
     store.addBook("Guido van Rossum", "Ormar på ett plan")
     store.toggleFavorite(1)
     assert store.books[0]["fav"] is True
+
+
+def test_toggle_favorite_twice_removes_favorite():
+    store = BookStore()
+    store.addBook("Guido van Rossum", "Ormar på ett plan")
+    store.toggleFavorite(1)
+    store.toggleFavorite(1)
+    assert store.books[0]["fav"] is False
