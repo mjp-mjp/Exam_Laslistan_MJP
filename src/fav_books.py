@@ -4,3 +4,6 @@ class FavoriteBooks:
 
     def add(self, book):
         self.books.append(book)
+
+    def remove(self, book):
+        self.books.remove(book)
