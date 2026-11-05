@@ -1,0 +1,33 @@
+name: Demo CI/CD med Python
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main", "dev"]
+
+jobs:
+  # Bygger projektet och kör testerna
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Hämtar koden från repot
+      - name: Checka ut koden från repot
+        uses: actions/checkout@v7
+
+      # 2. Installerar samma Python-version som jag har lokalt
+      - name: Inställningar för Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+
+      # 3. Installerar beroenden i requirements.txt
+      - name: Installera beroenden
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8 pytest
+
+      # 4. Kör alla tester med pytest
+      - name: Kör testerna med pytest
+        run: pytest --maxfail=1 --disable-warnings -q
