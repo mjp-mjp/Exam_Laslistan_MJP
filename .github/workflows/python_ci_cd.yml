@@ -31,3 +31,11 @@ jobs:
       # 4. Kör alla tester med pytest
       - name: Kör testerna med pytest
         run: pytest --maxfail=1 --disable-warnings -q
+
+      # 5. Installerar webbläsaren som Playwright behöver
+      - name: Installera Playwright och webbläsare
+        run: playwright install --with-deps chromium
+
+      # 6. Kör alla behave-tester (headless)
+      - name: Kör testerna med behave
+        run: behave
