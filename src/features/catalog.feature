@@ -1,7 +1,7 @@
 #noinspection CucumberUndefinedStep
 Feature: Katalog
   # User story:
-  # Som läsare vill jag kunna välja böcker i katalogen som favoriter för att hålla koll på vilka böcker jag vill läsa.
+  # Som läsare vill jag kunna se alla böcker i katalogen med titel och författare, samt kunna markera eller avmarkera en bok som favorit via hjärtat, för att hålla koll på vilka böcker jag kanske vill läsa.
 
   Scenario: välja en bok som favorit
 
